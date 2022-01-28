@@ -10,11 +10,10 @@ const stop$ = action$.pipe(filter(action => action === 'stop'));
 const reset$ = action$.pipe(filter(action => action === 'reset'));
 
 const observable$ = interval(1000)
-  .pipe(share())
   .pipe(
   takeUntil(stop$),
   repeatWhen(() => reset$)
-);
+).pipe(share());
 
 const App = () => {
   const [time, setTime] = useState(0);
