@@ -18,7 +18,6 @@ const observable$ = interval(1000)
 
 const App = () => {
   const [time, setTime] = useState(0);
-  const [timeOn, setTimeOn] = useState(true);
  
   const startTime = () => {
     const start = $('#start');
@@ -28,13 +27,11 @@ const App = () => {
   }
 
   const stop = () => {
-    setTimeOn(true);
     setTime(0);
     action$.next('stop')
   };
 
   const reset = () => {
-    setTimeOn(true);
     setTime(0);
     action$.next('stop')
     action$.next('reset')
