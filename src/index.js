@@ -47,7 +47,7 @@ const App = () => {
     click$.pipe(
       buffer(click$.pipe(debounceTime(300))),
       map(v => v.length),
-      filter(x => x > 1)
+      filter(x => x === 2)
     ).subscribe(() => action$.next('stop'))
   };
 
